@@ -1,19 +1,29 @@
 
+import { useState } from "react";
 import Login from "./Login";
 
-function Modal({ login }) {
+function Modal() {
+  const [isLogin, setIsLogin] = useState(true);
+  
+  const handleSingupOrLogin = () => {
+    setIsLogin(!isLogin);
+  };
 
   const closeModal = () => { //Login modal close karne ke liye
     const modal = document.getElementById("my_modal_3");
     modal.close();
+    setIsLogin(true);
   };
+ 
 
   return (
     <div className="">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
       <button className=""
-        onClick={() => document.getElementById("my_modal_3").showModal()}>
-        {login}
+        
+        onClick={() => document.getElementById("my_modal_3").showModal()}
+        >
+        Login
       </button>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box bg-neutral-100">
@@ -23,7 +33,7 @@ function Modal({ login }) {
             </button>
           </form>
           <div className="">
-            <Login />
+            <Login isLogin={isLogin} handleSingupOrLogin={handleSingupOrLogin} />
           </div>
         </div>
       </dialog>

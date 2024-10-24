@@ -1,23 +1,10 @@
-import React, { useState } from "react";
+
 import Signup from "./Signup";
 
-function Login() {
-  const [isLogin, setIsLogin] = useState(true);
-
-  const handleSingupOrLogin = () => {
-    setIsLogin(!isLogin);
-  };
-
+function Login({isLogin,handleSingupOrLogin}) {
+  
   return (
     <>
-      {/*
-          This example requires updating your template:
-  
-          ```
-          <html class="h-full bg-white">
-          <body class="h-full">
-          ```
-        */}
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img alt="Your Company"
@@ -76,7 +63,7 @@ function Login() {
           {isLogin ? "Don't have an account? " : "Already have an account? "}
           <span onClick={handleSingupOrLogin}
             className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500 cursor-pointer">
-            {isLogin ? 'Register now' : 'Login'}
+            {isLogin ? 'Register Now' : 'Login'}
           </span>
         </p>
       </div>
